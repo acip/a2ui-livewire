@@ -1,0 +1,72 @@
+{
+    "name": "acip/a2ui-livewire",
+    "description": "A2UI v1.0 renderer for Laravel Livewire: render agent-generated user interfaces in Laravel.",
+    "type": "library",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/acip/a2ui-livewire",
+    "authors": [
+        {
+            "name": "acip",
+            "homepage": "https://github.com/acip"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/acip/a2ui-livewire/issues",
+        "source": "https://github.com/acip/a2ui-livewire"
+    },
+    "keywords": [
+        "a2ui",
+        "livewire",
+        "laravel",
+        "agents",
+        "generative-ui",
+        "a2a"
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/view": "^11.0|^12.0|^13.0",
+        "league/commonmark": "^2.4",
+        "livewire/livewire": "^3.7.4|^4.0"
+    },
+    "require-dev": {
+        "livewire/flux": "^2.0",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^11.0|^12.0",
+        "symfony/yaml": "^7.0|^8.0"
+    },
+    "suggest": {
+        "ext-intl": "Locale-aware formatNumber, formatCurrency and pluralize (falls back to en-US rules without it).",
+        "livewire/flux": "Optional \"flux\" theme (A2UI_THEME=flux) that renders the Basic Catalog with Flux components."
+    },
+    "autoload": {
+        "psr-4": {
+            "A2uiLivewire\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "A2uiLivewire\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "A2uiLivewire\\A2uiServiceProvider"
+            ],
+            "aliases": {
+                "A2ui": "A2uiLivewire\\Facades\\A2ui"
+            }
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

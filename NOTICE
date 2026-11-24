@@ -1,0 +1,36 @@
+A2UI renderer for Laravel Livewire
+Copyright 2026 acip
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes material from the A2UI project
+(https://github.com/a2ui-project/a2ui), Copyright 2024 Google LLC,
+licensed under the Apache License, Version 2.0:
+
+  Included unmodified:
+  - resources/catalogs/basic_catalog.json
+      A2UI v1.0 Basic Catalog definition (catalogs/basic/v1/catalog.json)
+  - resources/examples/*.json
+      Basic Catalog examples (catalogs/basic/v1/examples)
+  - tests/Fixtures/conformance/*.yaml
+      Conformance suites (conformance/core)
+  - tests/Fixtures/contact_form_example.jsonl
+      Protocol test stream (specification/v1_0/test/cases)
+
+  Ported from TypeScript to PHP and modified:
+  - src/Evaluation/ExpressionParser.php
+      from typescript/core/web_core/src/expressions/expression_parser.ts
+  - src/Evaluation/RegexDialect.php
+      from typescript/core/web_core/src/common/regex_subset.ts
+  - src/Catalog/Basic/BasicFunctions.php
+      from typescript/core/web_core/src/common/basic_functions.ts
+  - src/Support/UrlSanitizer.php
+      from typescript/core/web_core/src/common/sanitize_media_url.ts
+
+This product includes Material Icons by Google
+(https://github.com/google/material-design-icons), as packaged in
+@material-design-icons/svg (https://github.com/marella/material-design-icons),
+licensed under the Apache License, Version 2.0:
+
+  - resources/icons/material.php
+      59 filled icons, SVG markup extracted unmodified
