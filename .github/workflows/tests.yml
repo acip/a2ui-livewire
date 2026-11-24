@@ -12,7 +12,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php: '8.2', laravel: '11.*', testbench: '9.*',  livewire: '^3.7.4' }
+          # Laravel 11 is past its security-fix window and every release has an
+          # open advisory, so Composer blocks it; this job only checks compatibility.
+          - { php: '8.2', laravel: '11.*', testbench: '9.*',  livewire: '^3.7.4', allow-insecure: true }
           - { php: '8.3', laravel: '12.*', testbench: '10.*', livewire: '^3.7.4' }
           - { php: '8.3', laravel: '12.*', testbench: '10.*', livewire: '^4.0' }
           - { php: '8.4', laravel: '13.*', testbench: '11.*', livewire: '^4.0' }
@@ -30,6 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          if [ "${{ matrix.allow-insecure }}" = "true" ]; then composer config policy.advisories.block false; fi
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "livewire/livewire:${{ matrix.livewire }}" --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
