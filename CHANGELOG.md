@@ -6,7 +6,7 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-## [0.1.0] - Unreleased
+## [0.1.0] - 2026-11-24
 
 First release: an A2UI **v1.0** renderer for Laravel Livewire.
 
