@@ -11,7 +11,9 @@
     <livewire:a2ui
         :transport="config('services.a2ui_playground.transport')"
         :prompt="config('services.a2ui_playground.prompt')"
-        empty-text="Ask the agent something below, e.g. “What are the best restaurants in Bucharest?”. Replies from a live LLM take 15–30 seconds."
+        :empty-text="config('services.a2ui_playground.transport') === 'a2a'
+            ? 'Ask the agent something below, e.g. “What are the best restaurants in Bucharest?”. Replies from a live LLM take 15–30 seconds.'
+            : 'Ask the agent something below, or pick a suggestion.'"
         key="playground-renderer"
     />
 

@@ -258,9 +258,10 @@ final class BasicFunctions
         $hours = $fields['H'];
         $hours12 = $hours % 12 === 0 ? 12 : $hours % 12;
 
+        // Unicode TR35: text in single quotes is literal ('at'), and '' is an apostrophe.
         return preg_replace_callback(
-            '/yyyy|yy|MMMM|MMM|MM|M|EEEE|E|dd|d|HH|H|hh|h|mm|ss|a/',
-            static fn (array $m) => match ($m[0]) {
+            "/'(?:[^']|'')*'?|yyyy|yy|MMMM|MMM|MM|M|EEEE|E|dd|d|HH|H|hh|h|mm|ss|a/",
+            static fn (array $m) => $m[0][0] === "'" ? self::quotedLiteral($m[0]) : match ($m[0]) {
                 'yyyy' => (string) $fields['y'],
                 'yy' => substr((string) $fields['y'], -2),
                 'MMMM' => $names['monthsLong'][$fields['m'] - 1],
@@ -281,6 +282,23 @@ final class BasicFunctions
             },
             $pattern,
         ) ?? '';
+    }
+
+    /** `'at'` → `at`, `''` → `'`, `'o''clock'` → `o'clock`; an unterminated quote runs to the end. */
+    private static function quotedLiteral(string $token): string
+    {
+        if ($token === "''") {
+            return "'";
+        }
+
+        $body = substr($token, 1);
+
+        // An odd run of trailing quotes ends with the closing quote ('' pairs are escapes).
+        if ((strlen($body) - strlen(rtrim($body, "'"))) % 2 === 1) {
+            $body = substr($body, 0, -1);
+        }
+
+        return str_replace("''", "'", $body);
     }
 
     public static function pluralize(array $args, string $locale = 'en-US'): string

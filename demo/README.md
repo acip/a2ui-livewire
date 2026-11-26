@@ -1,6 +1,6 @@
 # A2UI Livewire demo
 
-A Laravel 13 + Livewire 4 + Flux app that uses `acip/a2ui-livewire` from the
+A Laravel 13 + Livewire 4 + Tailwind app that uses `acip/a2ui-livewire` from the
 parent directory (Composer path repository).
 
 ```bash

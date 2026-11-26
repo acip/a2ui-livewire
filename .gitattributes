@@ -2,6 +2,7 @@
 
 # Not shipped in the Composer dist archive.
 /.github            export-ignore
+/art                export-ignore
 /demo               export-ignore
 /tests              export-ignore
 /phpunit.xml        export-ignore

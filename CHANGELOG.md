@@ -6,6 +6,18 @@ project uses [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-26
+
+### Added
+- README demo GIF and screenshots (kept out of the Composer package).
+
+### Fixed
+- `formatDate` treats text in single quotes as literal (Unicode TR35), so
+  `"MMM d 'at' h:mm a"` renders "Dec 15 at 7:30 AM" instead of "Dec 15 'AMt' 7:30 AM".
+- Default theme: containers and form fields inside a `Row` share its width
+  instead of each taking 100%, and short values such as prices no longer wrap
+  mid-word.
+
 ## [0.1.0] - 2026-11-24
 
 First release: an A2UI **v1.0** renderer for Laravel Livewire.

@@ -2,6 +2,7 @@
 
 namespace A2uiLivewire\Tests\Unit;
 
+use A2uiLivewire\Catalog\Basic\BasicFunctions;
 use A2uiLivewire\Evaluation\RegexDialect;
 use A2uiLivewire\Exceptions\A2uiException;
 use A2uiLivewire\Support\JsonPointer;
@@ -12,6 +13,17 @@ use PHPUnit\Framework\TestCase;
 
 class SupportTest extends TestCase
 {
+    public function test_format_date_quoted_literals(): void
+    {
+        $at = '2025-07-15T19:00:00';
+
+        $this->assertSame('Tuesday, July 15, 2025 at 7:00 PM', BasicFunctions::formatDate($at, "EEEE, MMMM d, yyyy 'at' h:mm a"));
+        $this->assertSame("7 o'clock", BasicFunctions::formatDate($at, "h 'o''clock'"));
+        $this->assertSame("15' 19h", BasicFunctions::formatDate($at, "d'' H'h'"));
+        $this->assertSame("a'", BasicFunctions::formatDate($at, "'a'''"));
+        $this->assertSame('day dd', BasicFunctions::formatDate($at, "'day dd"));
+    }
+
     public function test_json_pointer_resolution(): void
     {
         $this->assertSame('/users/0/name', JsonPointer::resolve('name', '/users/0'));

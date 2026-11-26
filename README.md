@@ -9,6 +9,11 @@ Render agent-generated user interfaces in Laravel. This package is an
 Livewire component turns them into a live UI. It needs no front-end build step
 and no UI library; an optional theme renders with [Flux](https://fluxui.dev) instead.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/acip/a2ui-livewire/main/art/demo.gif" width="600" alt="A prompt asks the agent to book a table; the agent replies with an A2UI form, the user fills it in and clicks Reserve, and the agent replies with a confirmation card.">
+</p>
+<p align="center"><sub>The demo app's agent playground: every card is A2UI sent by the agent and rendered by <code>&lt;livewire:a2ui&gt;</code>.</sub></p>
+
 ```blade
 <livewire:a2ui :messages="$messages" transport="a2a" />
 ```
@@ -72,6 +77,10 @@ When your app defines Tailwind v4 or Flux theme variables (`--color-accent`,
 `--color-zinc-*`), the theme uses them automatically. Dark mode follows a
 `.dark` class on an ancestor (the Tailwind and Flux convention) or
 `data-a2ui-theme="dark"` on the renderer.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/acip/a2ui-livewire/main/art/themes.png" width="720" alt="The same A2UI surface rendered by the default theme in light and dark mode.">
+</p>
 
 The Flux theme uses only Flux components that have no Pro marker in Flux's docs.
 Flux is not bundled with this package and has its own license terms, so check
@@ -273,6 +282,10 @@ php artisan serve
   agent (`app/A2ui/DemoAgent.php`) that needs no API key: a booking form with
   checks, a todo list template, a streamed weather card, an agent-function
   shipping quote and a custom component from a second catalog.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/acip/a2ui-livewire/main/art/gallery.png" width="900" alt="The demo gallery: an example list, the rendered surface with its message stream, and the live data model.">
+</p>
 
 ### Try it with a real agent
 

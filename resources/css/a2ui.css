@@ -163,6 +163,10 @@
 .a2ui-list-item { display: flex; min-width: 0; }
 .a2ui-list-item > * { width: 100%; }
 
+/* Containers nested in a Row share the space instead of each claiming 100%. */
+.a2ui-row > :is(.a2ui-row, .a2ui-column, .a2ui-list, .a2ui-card, .a2ui-field) { width: auto; flex: 1 1 auto; }
+.a2ui-row > .a2ui-field-check { flex: 0 0 auto; }
+
 [data-justify="start"] { justify-content: flex-start; }
 [data-justify="center"] { justify-content: center; }
 [data-justify="end"] { justify-content: flex-end; }
@@ -200,7 +204,8 @@
 
 .a2ui-text {
     min-width: 0;
-    overflow-wrap: anywhere;
+    /* break-word (not anywhere) keeps short values such as "$6.45" whole. */
+    overflow-wrap: break-word;
 }
 
 .a2ui-caption {

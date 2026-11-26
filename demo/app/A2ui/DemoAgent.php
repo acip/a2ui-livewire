@@ -71,7 +71,7 @@ class DemoAgent
             $this->c('root', 'Card', ['child' => 'col']),
             $this->c('col', 'Column', ['children' => ['title', 'body', 'chips']]),
             $this->c('title', 'Text', ['text' => '### Hi! I render UI with A2UI.']),
-            $this->c('body', 'Text', ['text' => 'Everything on this page is an **A2UI surface** streamed from a PHP agent and rendered by Livewire + Flux. Try one of these:']),
+            $this->c('body', 'Text', ['text' => 'Everything on this page is an **A2UI surface** streamed from a PHP agent and rendered by Livewire. Try one of these:']),
             $this->c('chips', 'Row', ['children' => ['path' => '/suggestions', 'componentId' => 'chip']]),
             $this->c('chip', 'Button', ['child' => 'chip_label', 'variant' => 'default', 'action' => ['event' => [
                 'name' => 'suggest', 'context' => ['prompt' => ['@path' => 'text']],
